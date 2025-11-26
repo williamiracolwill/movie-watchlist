@@ -6,3 +6,67 @@ html, body {
     margin: 0;
 }
 
+body {
+    font-family: "Inter", sans-serif;
+}
+
+header {
+    background-image: url('/assets/movie-posters.png');
+    background-size: cover;
+    padding: 90px 45px;
+    background-color: rgba(0, 0, 0, .95);
+    color: white;
+    position: relative;
+}
+
+header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+form {
+    position: absolute;
+    bottom: -18px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+input, .search-btn {
+    border: 1px solid #DFDDDD;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+input {
+    width: 65%;
+    padding: 9px 0 9px 40px;
+    background: url('assets/search-icon.png') no-repeat scroll 7px 7px;
+    background-color: white;
+    border-radius: 6px 0 0 6px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.search-btn {
+    font-family: inherit;
+    padding: 9px 40px;
+    border-radius: 0 6px 6px 0;
+}
