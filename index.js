@@ -5,11 +5,14 @@ const initialState = document.getElementById("initial-state")
 
 movieSearchForm.addEventListener('submit', (e) => {
     e.preventDefault()
-    getMovies()
+    const movieFormData = new FormData(movieSearchForm)
+    const movieTitle = movieFormData.get("movie-input")
+    const modifiedMovieTitle = movieTitle.replace(/ /g, "+")
+    getMovies(modifiedMovieTitle)
 })
 
-async function getMovies() {
-    const res = await fetch("http://www.omdbapi.com/?t=Blade+Runner&type=movie&apikey=467c506d")
+async function getMovies(title) {
+    const res = await fetch(`http://www.omdbapi.com/?t=${title}&type=movie&apikey=467c506d`)
     const moviedata = await res.json()
     console.log(moviedata)
     movieList.innerHTML = getMovieHtml(moviedata)
