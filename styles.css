@@ -10,6 +10,23 @@ body {
     font-family: "Inter", sans-serif;
 }
 
+/* Typography */
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Layout */
+
 header {
     background-image: url('/assets/movie-posters.png');
     background-size: cover;
@@ -25,18 +42,6 @@ header > div {
     align-items: center;
 }
 
-h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    font-weight: 800;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 600;
-}
 
 form {
     position: absolute;
@@ -47,6 +52,13 @@ form {
     width: 100%;
 }
 
+.initial-state {
+    text-align: center;
+    padding-top: 240px
+}
+
+/* Form */
+
 input, .search-btn {
     border: 1px solid #DFDDDD;
     font-size: 1rem;
@@ -56,7 +68,7 @@ input, .search-btn {
 input {
     width: 65%;
     padding: 9px 0 9px 40px;
-    background: url('assets/search-icon.png') no-repeat scroll 7px 7px;
+    background: url('assets/search-icon.png') no-repeat scroll 8px 9px;
     background-color: white;
     border-radius: 6px 0 0 6px;
     color: rgb(118, 117, 117);
@@ -74,7 +86,3 @@ input:focus {
     cursor: pointer;
 }
 
-.no-data {
-    text-align: center;
-    padding-top: 240px
-}

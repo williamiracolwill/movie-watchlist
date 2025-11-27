@@ -18,15 +18,16 @@
             <h1>Find your film</h1>
             <a href="">My Watchlist</a>
         </div>
-        <form>
+        <form id="movie-search-form">
             <input type="text" name="movie-input" id="movie-input" placeholder="Search for a movie">
             <button type="submit" class="search-btn" id="search-btn">Search</button>
         </form>
     </header>
-    <main>
-        <div class="no-data" id="no-data">
+    <main id="movie-list">
+        <div class="initial-state" id="initial-state">
             <img src="assets/no-data-initial.png" alt="movie reel icon with text saying start exploring">
         </div>
     </main>
+    <script type="module" src="index.js"></script>
 </body>
 </html>
