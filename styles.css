@@ -59,6 +59,7 @@ input {
     background: url('assets/search-icon.png') no-repeat scroll 7px 7px;
     background-color: white;
     border-radius: 6px 0 0 6px;
+    color: rgb(118, 117, 117);
 }
 
 input:focus {
@@ -69,4 +70,11 @@ input:focus {
     font-family: inherit;
     padding: 9px 40px;
     border-radius: 0 6px 6px 0;
+    color: rgb(67, 67, 67);
+    cursor: pointer;
+}
+
+.no-data {
+    text-align: center;
+    padding-top: 240px
 }
