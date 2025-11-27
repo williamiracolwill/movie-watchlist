@@ -10,10 +10,17 @@ body {
     font-family: "Inter", sans-serif;
 }
 
+button {
+    cursor: pointer;
+}
+
 /* Typography */
 
-h1 {
+h1, h2, p {
     margin: 0;
+}
+
+h1 {
     font-size: 2.5rem;
     font-weight: 800;
 }
@@ -24,6 +31,8 @@ a {
     font-size: 1rem;
     font-weight: 600;
 }
+
+
 
 /* Layout */
 
@@ -57,6 +66,70 @@ form {
     padding-top: 240px
 }
 
+main.movie-list {
+    padding: 65px 44px 35px;
+}
+
+.movie-item,
+.movie-info,
+.main-info,
+.sub-info,
+.add-movie-btn {
+    display: flex;
+}
+
+.movie-item {
+    align-items: flex-start;
+    border-bottom: solid 1px #DFDDDD;
+    padding-bottom: 25px;
+    margin-bottom: 20px;
+}
+
+.movie-poster {
+    height: 160px;
+    width: 107px;
+}
+
+.movie-info {
+    flex-direction: column;
+    flex-grow: 1;
+    margin-left: 21px;
+    margin-top: 15px;
+    padding-right: 10px;
+}
+
+.main-info,
+.sub-info {
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.movie-title {
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.movie-rating {
+    margin-left: 5px;
+    font-size: .85rem;
+}
+
+.sub-info > p {
+   margin-right: 20px; 
+   font-size: .85rem;
+}
+
+.add-movie-btn {
+    margin-left: 10px;
+    background: none;
+    border: none;
+    gap: 5px;
+}
+
+.movie-plot {
+    color: #6B7280;
+}
+
 /* Form */
 
 input, .search-btn {
@@ -83,6 +156,5 @@ input:focus {
     padding: 9px 40px;
     border-radius: 0 6px 6px 0;
     color: rgb(67, 67, 67);
-    cursor: pointer;
 }
 
