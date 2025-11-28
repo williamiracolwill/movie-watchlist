@@ -44,7 +44,7 @@ function getMovieHtml(arr) {
                 <p class="movie-plot">${Plot}</p>
             </div>
         </div>`
-    })
+    }).join('')
 
     
 }
