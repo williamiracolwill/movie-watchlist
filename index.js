@@ -12,16 +12,32 @@ movieSearchForm.addEventListener('submit', (e) => {
 })
 
 async function getMovies(title) {
-    const res = await fetch(`http://www.omdbapi.com/?s=${title}&type=movie&apikey=467c506d`)
-    const movieData = await res.json()
-    // console.log(movieData.Search)
-    let moviesArr = []
-    for (let movie of movieData.Search) {
-        const res = await fetch(`http://www.omdbapi.com/?i=${movie.imdbID}&type=movie&apikey=467c506d`)
-        const movieObj = await res.json()
-        moviesArr.push(movieObj)
+    try {
+        const res = await fetch(`http://www.omdbapi.com/?s=${title}&type=movie&apikey=467c506d`)
+        
+        if(!res.ok) {
+            throw new Error(`Network error: ${res.status}`)
+        } 
+        const movieData = await res.json()
+
+        if (movieData.Response === "False") {
+            throw new Error(movieData.Error || "No results returned from API");
+        }
+
+        let moviesArr = []
+        for (let movie of movieData.Search) {
+            const res = await fetch(`http://www.omdbapi.com/?i=${movie.imdbID}&type=movie&apikey=467c506d`)
+            const movieObj = await res.json()
+            moviesArr.push(movieObj)
+        }
+        movieList.innerHTML = getMovieHtml(moviesArr)
     }
-    movieList.innerHTML = getMovieHtml(moviesArr)
+    catch (err) {
+        console.error("getMovies error:", err)
+        document.getElementById('initial-state').innerHTML = `
+            <h3 class="grey-text">Unable to find what you are looking for. Please try another search</h3>`
+    }
+    // console.log(movieData.Search)
 }
 
 function getMovieHtml(arr) {
@@ -50,6 +66,5 @@ function getMovieHtml(arr) {
 }
 
 
-// Take data and get html for movie items 
-// display items 
-// 
+// make watchlist html page and set up default state
+// handle add to watchlist functionality..

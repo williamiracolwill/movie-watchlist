@@ -32,6 +32,10 @@ a {
     font-weight: 600;
 }
 
+.grey-text {
+    color: #DFDDDD;
+}
+
 
 
 /* Layout */
@@ -63,7 +67,8 @@ form {
 
 .initial-state {
     text-align: center;
-    padding-top: 240px
+    padding: 200px 50px;
+    
 }
 
 main.movie-list {
@@ -144,7 +149,7 @@ input {
     background: url('assets/search-icon.png') no-repeat scroll 8px 9px;
     background-color: white;
     border-radius: 6px 0 0 6px;
-    color: rgb(118, 117, 117);
+    color: rgb(67, 67, 67);
 }
 
 input:focus {
