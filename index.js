@@ -11,9 +11,26 @@ movieSearchForm.addEventListener('submit', (e) => {
     getMovies(modifiedMovieTitle)
 })
 
+movieList.addEventListener('click', e => {
+    e.preventDefault()
+    if (e.target.dataset.movie) {
+        addMovie(e.target.dataset.movie)
+    }
+})
+
+const moviesArr = []
+const savedMovies = []
+
+function addMovie(movieId) {
+    const targetMovieObj = moviesArr.filter(movie => movie.imdbID === movieId)[0]
+    savedMovies.push(targetMovieObj)
+    localStorage.setItem("savedMovies", JSON.stringify(savedMovies))
+    console.log(JSON.parse(localStorage.getItem("savedMovies")))
+}
+
 async function getMovies(title) {
     try {
-        const res = await fetch(`http://www.omdbapi.com/?s=${title}&type=movie&apikey=467c506d`)
+        const res = await fetch(`http://www.omdbapi.com/?s=Blade+Runner&type=movie&apikey=467c506d`) // fix later to add dynamic title
         
         if(!res.ok) {
             throw new Error(`Network error: ${res.status}`)
@@ -23,8 +40,7 @@ async function getMovies(title) {
         if (movieData.Response === "False") {
             throw new Error(movieData.Error || "No results returned from API");
         }
-
-        let moviesArr = []
+        
         for (let movie of movieData.Search) {
             const res = await fetch(`http://www.omdbapi.com/?i=${movie.imdbID}&type=movie&apikey=467c506d`)
             const movieObj = await res.json()
@@ -37,7 +53,6 @@ async function getMovies(title) {
         document.getElementById('initial-state').innerHTML = `
             <h3 class="grey-text">Unable to find what you are looking for. Please try another search</h3>`
     }
-    // console.log(movieData.Search)
 }
 
 function getMovieHtml(arr) {
@@ -50,12 +65,12 @@ function getMovieHtml(arr) {
                 <div class="main-info">
                     <h2 class="movie-title">${Title}</h2>
                     <img src="assets/star-icon.png">
-                    <p class="movie-rating">${imdbRating}</p>
+                    <p class="movie-rating">"${imdbRating}"</p>
                 </div>
                 <div class="sub-info">
                     <p>${Runtime}</p>
                     <p>${Genre}</p>
-                    <button class="add-movie-btn"><img src="assets/add-icon.png"> Watchlist</button>
+                    <button class="add-movie-btn" data-movie="${imdbID}"><img src="assets/add-icon.png" alt="add button" data-movie="${imdbID}" /> Watchlist</button>
                 </div>
                 <p class="movie-plot">${Plot}</p>
             </div>
