@@ -7,14 +7,14 @@ const moviesArr = []
 let savedMovies = []
 
 const watchlistLocalStorage = JSON.parse(localStorage.getItem("savedMovies"))
+// localStorage.clear()
 
 if (watchlistLocalStorage) {
     savedMovies = watchlistLocalStorage
     renderWatchlist(savedMovies)
 }
 
-
-movieSearchForm.addEventListener('submit', (e) => {
+movieSearchForm.addEventListener('submit', e => {
     e.preventDefault()
     const movieFormData = new FormData(movieSearchForm)
     const movieTitle = movieFormData.get("movie-input")
@@ -38,7 +38,7 @@ function addMovie(movieId) {
 
 async function getMovies(title) {
     try {
-        const res = await fetch(`http://www.omdbapi.com/?s=Blade+Runner&type=movie&apikey=467c506d`) // fix later to add dynamic title
+        const res = await fetch(`http://www.omdbapi.com/?s=${title}&type=movie&apikey=467c506d`) // fix later to add dynamic title
         
         if(!res.ok) {
             throw new Error(`Network error: ${res.status}`)
@@ -124,5 +124,3 @@ function getWatchlistHtml(arr) {
 function renderWatchlist(arr) {
     movieWatchlist.innerHTML = getWatchlistHtml(arr)
 }
-// make watchlist html page and set up default state
-// handle add to watchlist functionality..
