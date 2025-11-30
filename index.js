@@ -78,7 +78,13 @@ function getMovieHtml(arr) {
                 <div class="sub-info">
                     <p>${Runtime}</p>
                     <p>${Genre}</p>
-                    <button class="add-movie-btn" data-movie="${imdbID}"><img src="assets/add-icon.png" alt="add button" data-movie="${imdbID}" /> Watchlist</button>
+                    <button 
+                    class="add-movie-btn" 
+                    data-movie="${imdbID}"
+                    ><img src="assets/add-icon.png" 
+                    alt="add button" 
+                    data-movie="${imdbID}" 
+                    />Watchlist</button>
                 </div>
                 <p class="movie-plot">${Plot}</p>
             </div>
@@ -101,7 +107,13 @@ function getWatchlistHtml(arr) {
                 <div class="sub-info">
                     <p>${Runtime}</p>
                     <p>${Genre}</p>
-                    <button class="add-movie-btn" data-movie="${imdbID}"><img src="assets/remove-icon.png" alt="remove button" data-movie="${imdbID}" /> Watchlist</button>
+                    <button 
+                    class="add-movie-btn" 
+                    data-movie="${imdbID}"
+                    ><img src="assets/remove-icon.png" 
+                    alt="remove button" 
+                    data-movie="${imdbID}" 
+                    />Remove</button>
                 </div>
                 <p class="movie-plot">${Plot}</p>
             </div>
@@ -112,7 +124,5 @@ function getWatchlistHtml(arr) {
 function renderWatchlist(arr) {
     movieWatchlist.innerHTML = getWatchlistHtml(arr)
 }
-
-renderWatchlist()
 // make watchlist html page and set up default state
 // handle add to watchlist functionality..
